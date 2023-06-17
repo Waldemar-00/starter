@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useEffect, useCallback, useMemo} from 'react';
 import {Container} from 'react-bootstrap';
 import './App.css';
 const Slider = () => {
@@ -16,6 +16,13 @@ const Slider = () => {
             window.removeEventListener('click', logging)
         }
     }, [state.slide])
+    const hardCalculations = (numbers) => {
+        console.log('HARD')
+        const rezult = numbers.reduce((acc, n) => {
+            return (acc + n) / 2 * 100
+        }, 100)
+        return rezult
+    }
     const getSomeImages = useCallback(() => {
         console.log('GET')
         return [
@@ -32,8 +39,11 @@ const Slider = () => {
     const toggleAutoplay = () => {
         setState(state => ({...state, autoplay: !state.autoplay}))
     }
+    const numbers = useMemo(() =>  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], [])
+    const rezult = useMemo(() =>  hardCalculations(numbers), [numbers])
     return (
         <Container>
+            <div style={{textAlign: 'center', margin: '20px auto 20px'}}>{rezult}</div>
             <div className="slider w-50 m-auto">
                 <img className="d-block w-100" src="https://www.planetware.com/wpimages/2020/02/
 france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="slide" />
