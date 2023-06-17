@@ -1,86 +1,6 @@
 import {useState, useEffect, useCallback} from 'react';
 import {Container} from 'react-bootstrap';
 import './App.css';
-// class Slider extends Component {
-// 
-    // constructor(props) {
-        // super(props);
-        // this.state = {
-            // autoplay: false,
-            // slide: 0
-        // }
-    // }
-    // conponentDidMount() {
-        // document.title = `Slide: ${this.state.slide}`
-    // }
-    // componentDidUpdate() {
-        // document.title = `Slide: ${this.state.slide}`
-    // }
-    // changeSlide = (i) => {
-        // this.setState(({slide}) => ({
-            // slide: slide + i
-        // }))
-    // }
-// 
-    // toggleAutoplay = () => {
-        // this.setState(({autoplay}) => ({
-            // autoplay: !autoplay
-        // }))
-    // }
-// 
-    // render() {
-        // return (
-            // <Container>
-                /* <div className="slider w-50 m-auto"> */
-                    /* {/* <img className="d-block w-100" src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="slide" /> */
-                    /* <div className="text-center mt-5">Active slide {this.state.slide} <br/> {this.state.autoplay ? 'auto' : null}</div> */
-                        /* <div className="buttons mt-3"> */
-                        /* <button */
-                            // className="btn btn-primary me-2"
-                            // onClick={() => this.changeSlide(-1)}>-1</button>
-                        /* <button */
-                            // className="btn btn-primary me-2"
-                            // onClick={() => this.changeSlide(1)}>+1</button>
-                        /* <button  */
-                            // className="btn btn-primary me-2"
-                            // onClick={this.toggleAutoplay}>toggle autoplay</button>
-                    /* </div> */
-                /* </div> */
-            /* </Container>  */
-        // )
-    // }
-// }
-
-
-// const Slider = () => {
-    // const [slide, setSlide] = useState(0)
-    // const [autoplay, setAutoplay] = useState(false)
-    // const changeSlide = (i) => {
-        // setSlide(slide => slide + i)
-    // }
-    // const toggleAutoplay = () => {
-        // setAutoplay(autoplay => !autoplay)
-    // }
-    // return (
-        // <Container>
-            /* <div className="slider w-50 m-auto"> */
-                /* {/* <img className="d-block w-100" src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="slide" /> */
-                /* <div className="text-center mt-5">Active slide {slide} <br/> {autoplay ? 'auto' : null}</div> */
-                /* <div className="buttons mt-3"> */
-                    /* <button  */
-                        // className="btn btn-primary me-2"
-                        // onClick={() => changeSlide( -1)}>-1</button>
-                    /* <button  */
-                        // className="btn btn-primary me-2"
-                        // onClick={() => changeSlide(1)}>+1</button>
-                    /* <button  */
-                        // className="btn btn-primary me-2"
-                        // onClick={toggleAutoplay}>toggle autoplay</button>
-                /* </div> */
-            /* </div> */
-        /* </Container> */
-    // )
-// }
 const Slider = () => {
     const [state, setState] = useState({ slide: 0, autoplay: false })
     
@@ -99,9 +19,9 @@ const Slider = () => {
     const getSomeImages = useCallback(() => {
         console.log('GET')
         return [
-            'https://imglarger.com/Images/before-after/ai-image-enlarger-1-after-2.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQArTzo_6ODTO8yjuSqaWUEAbvVM3oFubu5VWrRnv9Kh4pgWRPNsNUU--p9lOrQYmElzR0&usqp=CAU',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoAAsrkv-bDma7wGa3UiXPHbNZzlqkfpaTH5POwWF0qoQE-RVw51Jbr0AyBTDkhUFe54c&usqp=CAU'
+            'https://st2.depositphotos.com/6672578/9739/i/600/depositphotos_97391824-stock-photo-beautiful-woman-smiling-sweetly-in.jpg',
+            'https://t4.ftcdn.net/jpg/06/07/10/03/360_F_607100352_sxqMVVdsMAwXuW3VW1EfyJkJzG82Jtqf.jpg',
+            'https://t4.ftcdn.net/jpg/02/12/19/27/360_F_212192737_Cj1xDJHEuOWD93dW2qRfPJE1VrAUfyNh.jpg'
         ]
     }, [])
     const changeSlide = (i) => {
@@ -141,7 +61,7 @@ const Slide = ({getSomeImages}) => {
     }, [getSomeImages])
     return (
         <>
-        {images.map((url, i) => <img key={i} src={url} alt='woman'/>)}
+        {images.map((url, i) => <img key={i} src={url} alt='woman' className="d-block w-100"/>)}
         </>
     )
 }
