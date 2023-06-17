@@ -61,7 +61,7 @@ const Slide = ({getSomeImages}) => {
     }, [getSomeImages])
     return (
         <>
-        {images.map((url, i) => <img key={i} src={url} alt='woman' className="d-block w-100"/>)}
+        {images ? images.map((url, i) => <img key={i} src={url} alt='woman' className="d-block w-100"/>) : null}
         </>
     )
 }
