@@ -1,13 +1,19 @@
-import {useRef} from 'react';
+import {useRef, useState, useEffect} from 'react';
 import {Container} from 'react-bootstrap';
 import './App.css';
 
 const Form = () => {
+  const [text, setText] = useState('')
+  const textareaRef = useRef(null)
   const myRef = useRef(null)
-  console.log(myRef)
+  const counter = useRef(null)
+  useEffect(() => {
+    console.log(counter.current)
+  }, [text])
+  
 
-    const focusFirstTI = () => {
-        myRef.current.focus();
+  const focusFirstTI = () => {
+      if(document.querySelector('input').value === '') myRef.current.focus();
     }
 
     return (
@@ -15,13 +21,30 @@ const Form = () => {
             <form className="w-50 border mt-5 p-3 m-auto">
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-                    <input ref={myRef} type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+                      <input ref={myRef} onChange={(e) => setText(e.target.value)}
+                        type="email" className="form-control"
+                        id="exampleFormControlInput1" placeholder="name@example.com"
+                        value={text}
+                        />
                     </div>
                     <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-                    <textarea onClick={focusFirstTI} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea
+                    onClick={focusFirstTI}
+                    ref={textareaRef}
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    onChange={() => counter.current++}
+                    >
+                  </textarea>
                 </div>
             </form>
+        <div style={{
+          textAlign: 'center',
+          margin: '20px auto 20px',
+          fontSize: '30px'
+        }}>{counter.current}</div>
         </Container>
     )
 }
