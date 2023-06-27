@@ -1,6 +1,6 @@
 import {useEffect} from 'react'
 import { Container } from 'react-bootstrap'
-import useInput from './hooks/useInput'
+import useInput from './customHooks/useInput'
 import './App.css'
 
 const FormHook = () => {
