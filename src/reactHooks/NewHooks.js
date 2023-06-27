@@ -1,17 +1,22 @@
 import data from '../data'
-import {useState, useMemo, useDeferredValue} from 'react'
+import {useState, useMemo, useDeferredValue, useTransition} from 'react'
 
 function NewHooks() {
-    const [text, setText] = useState('');
-    const [posts, setPosts] = useState(data);
-    const deferredText = useDeferredValue(text)
+    const [text, setText] = useState('')
+    const [posts, setPosts] = useState(data)
+    //? const deferredText = useDeferredValue(text)
+    const [isPending, startTransition] = useTransition()
+    //? const filteredPosts = useMemo(() => {
+        //? return posts.filter(item => item.name.toLowerCase().includes(deferredText));
+    //? }, [deferredText, posts]);
     const filteredPosts = useMemo(() => {
-        return posts.filter(item => item.name.toLowerCase().includes(deferredText));
-    }, [deferredText, posts]);
-
-    const onValueChange = (e) => {
-        setText(e.target.value);
-    }
+    return posts.filter(item => item.name.toLowerCase().includes(text))
+    }, [text, posts])
+  const onValueChange = (e) => {
+    //! not use for entering text!!! It's only for exemple!!!!
+    startTransition(() => setText(e.target.value))
+    //! not use for entering text!!! It's only for exemple!!!!
+  }
 
     return (
         <>
@@ -21,7 +26,7 @@ function NewHooks() {
             <hr/>
 
             <div style={{margin: '0 auto', textAlign: 'center'}}>
-                {filteredPosts.map(post => (
+                { isPending ? <h4>Loading...</h4> : filteredPosts.map(post => (
                     <div key={post._id}>
                         <h4>{post.name}</h4>
                     </div>
@@ -31,4 +36,4 @@ function NewHooks() {
     );
 }
 
-export default NewHooks;
+export default NewHooks
