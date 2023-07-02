@@ -7,6 +7,7 @@ import FormHook from './FormHook'
 // import NewHooks from'./reactHooks/NewHooks'
 import Memo from './reactHooks/Memo'
 import PureMemo from './reactHooks/PureComponent'
+import UpdateMemo from './reactHooks/shouldComponentUpdate'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -16,6 +17,7 @@ root.render(
     <FormHook />
     {/* <NewHooks /> */}
     <Memo />
-    <PureMemo/>
+    <PureMemo />
+    <UpdateMemo/>
   </>
 )
