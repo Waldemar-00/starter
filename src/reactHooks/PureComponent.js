@@ -24,9 +24,7 @@ class PureForm extends PureComponent {
 
 function PureMemo() {
     const [data, setData] = useState({
-      mail: {
-        name: "name@example.com"
-      },
+      mail: "name@example.com",
         text: 'some text'
     });
 
@@ -35,9 +33,7 @@ function PureMemo() {
             <PureForm mail={data.mail} text={data.text}/>
             <button 
                 onClick={() => setData({
-                  mail: {
-                    name: "name@example.io"
-                  },
+                  mail: "name@example.io",
                   text: 'some textus'
                 })}>
                 Click me
