@@ -2,9 +2,6 @@ import {useState, PureComponent} from 'react'
 import {Container} from 'react-bootstrap'
 import '../App.css'
 class PureForm extends PureComponent {
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.mail.name === nextProps.mail.name ?  false : true 
-  }
   render() {
     console.log('render')
     return (
