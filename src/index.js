@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import FormHook from './FormHook'
 // import NewHooks from'./reactHooks/NewHooks'
 import Memo from './reactHooks/Memo'
+import PureMemo from './reactHooks/PureComponent'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -14,6 +15,7 @@ root.render(
     <Ref />
     <FormHook />
     {/* <NewHooks /> */}
-    <Memo/>
+    <Memo />
+    <PureMemo/>
   </>
 )
