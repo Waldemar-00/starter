@@ -5,11 +5,10 @@ const Slider = () => {
     const [state, setState] = useState({ slide: 0, autoplay: false })
     
     const logging = () => {
-        console.log('logging')
+        // console.log('logging')
     }
 
     useEffect(() => {
-        console.log('useEffect')
         document.title = `Sl: ${state.slide}`
         window.addEventListener('click', logging)
         return () => {
@@ -24,7 +23,6 @@ const Slider = () => {
         return rezult
     }
     const getSomeImages = useCallback(() => {
-        console.log('GET')
         return [
             'https://st2.depositphotos.com/6672578/9739/i/600/depositphotos_97391824-stock-photo-beautiful-woman-smiling-sweetly-in.jpg',
             'https://t4.ftcdn.net/jpg/06/07/10/03/360_F_607100352_sxqMVVdsMAwXuW3VW1EfyJkJzG82Jtqf.jpg',
