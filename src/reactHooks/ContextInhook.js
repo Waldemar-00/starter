@@ -6,7 +6,8 @@ const dataContext = createContext(//! default value
   mail: {
     name: "name@example.com"
   },
-    text: 'default text'
+    text: 'default text',
+    forceChangeMail: () => {}
   }
 ) //! default value
 console.dir(dataContext)
@@ -55,7 +56,11 @@ const Input = () => {
       /* { */
       // value => {
         // return (
-    <input value={context.mail.name} type="email" className='form-control' id="exampleFormControlInput1" placeholder="name@example.com" />
+    <input value={context.mail.name}
+      type="email" className='form-control'
+      id="exampleFormControlInput1" placeholder="name@example.com"
+      onFocus={() => context.forceChangeMail()}
+    />
         // )
       // }
       // }
@@ -68,9 +73,13 @@ function ContextInHook() {
       mail: {
         name: "name@example.com"
       },
-        text: 'some text'
+      text: 'some text',
+      forceChangeMail: forceChangeMail
     }
-  );
+  )
+  function forceChangeMail() {
+    setData({...data, mail: {name: "TEST@example.com"}})
+  }
     return (
         <Provider value={data}>
             <UpdateForm text={data.text}/>
@@ -79,8 +88,10 @@ function ContextInHook() {
                   mail: {
                     name: "name@example.io"
                   },
-                  text: 'another text'
-                })}>
+                  text: 'another text',
+                  forceChangeMail: forceChangeMail
+                })}
+              >
                 Click me
             </button>
         </Provider>
