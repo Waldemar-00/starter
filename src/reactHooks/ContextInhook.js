@@ -1,4 +1,4 @@
-import {useState, Component, createContext} from 'react'
+import {useState, Component, createContext, useContext} from 'react'
 import {Container} from 'react-bootstrap'
 import '../App.css'
 const dataContext = createContext(//! default value
@@ -6,7 +6,7 @@ const dataContext = createContext(//! default value
   mail: {
     name: "name@example.com"
   },
-    text: 'some text'
+    text: 'default text'
   }
 ) //! default value
 console.dir(dataContext)
@@ -48,18 +48,19 @@ class UpdateForm extends Component {
     )
   }
 }
-class Input extends Component {
-  render() {
-    return (
-      <Consumer >
-        {
-        value => {
-          return <input value={value.mail.name} type="email" className='form-control' id="exampleFormControlInput1" placeholder="name@example.com" />
-        }
-        }
-      </Consumer>
-    )
-  }
+const Input = () => {
+  const context = useContext(dataContext)
+  return (
+    // <Consumer >
+      /* { */
+      // value => {
+        // return (
+    <input value={context.mail.name} type="email" className='form-control' id="exampleFormControlInput1" placeholder="name@example.com" />
+        // )
+      // }
+      // }
+    // </Consumer>
+  )
 }
 function ContextInHook() {
   const [data, setData] = useState(

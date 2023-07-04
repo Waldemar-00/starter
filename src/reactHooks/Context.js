@@ -49,7 +49,7 @@ class UpdateForm extends Component {
   }
 }
 class Input extends Component {
-  static contextType = dataContext
+  static contextType = dataContext //! modern way
   render() {
     return (
       // <Consumer >
@@ -64,7 +64,7 @@ class Input extends Component {
     )
   }
 }
-//! Input.contextType = dataContext
+//! Input.contextType = dataContext - classical way
 function Context() {
   const [data, setData] = useState(
     {
