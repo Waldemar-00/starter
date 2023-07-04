@@ -49,18 +49,22 @@ class UpdateForm extends Component {
   }
 }
 class Input extends Component {
+  static contextType = dataContext
   render() {
     return (
-      <Consumer >
-        {
-        value => {
-          return <input value={value.mail.name} type="email" className='form-control' id="exampleFormControlInput1" placeholder="name@example.com" />
-        }
-        }
-      </Consumer>
+      // <Consumer >
+        /* { */
+        // value => {
+          // return (
+            <input value={this.context.mail.name} type="email" className='form-control' id="exampleFormControlInput1" placeholder="name@example.com" />
+          // )
+        // }
+        // }
+      // </Consumer>
     )
   }
 }
+//! Input.contextType = dataContext
 function Context() {
   const [data, setData] = useState(
     {
