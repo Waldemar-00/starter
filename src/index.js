@@ -8,11 +8,15 @@ import FormHook from './FormHook'
 import Memo from './reactHooks/Memo'
 import PureMemo from './reactHooks/PureComponent'
 import UpdateMemo from './reactHooks/shouldComponentUpdate'
+import Context from './reactHooks/Context'
+import ContextInHook from './reactHooks/ContextInhook'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
   <>
     <App />
+    <ContextInHook/>
+    <Context/>
     <Ref />
     <FormHook />
     {/* <NewHooks /> */}
