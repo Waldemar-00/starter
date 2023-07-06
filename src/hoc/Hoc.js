@@ -70,12 +70,28 @@ const SliderSecond = (props) => {
 }
 const First = withSlider(SliderFirst, getDataFromFirstFetch)
 const Second = withSlider(SliderSecond, getDataFromSecondFetch)
+const Hello = (props) => {
+  return (
+    <h2 className='h2' style={{textAlign: 'center', margin: '40px auto'}}>Hello {props.cities}</h2>
+  )
+}
+const withHello = Wrapper => props => {
+  useEffect(() => {
+    const styles = {
+      color: 'red'
+    }
+    document.querySelector('.h2').style.color = styles.color
+  }, [])
+  return <Wrapper {...props}/>
+}
+const NewHello = withHello(Hello)
 function Hoc() {
     return (
-        <>
-          <First name={'Paris'}/>
-          <Second name={'London'}/>
-        </>
+      <>
+        <NewHello cities={'Cities'}/>
+        <First name={'Paris'}/>
+        <Second name={'London'}/>
+    </>
     );
 }
 
