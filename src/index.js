@@ -10,6 +10,7 @@ import PureMemo from './reactHooks/PureComponent'
 import UpdateMemo from './reactHooks/shouldComponentUpdate'
 import Context from './reactHooks/Context'
 import ContextInHook from './reactHooks/ContextInhook'
+import Hoc from './hoc/Hoc'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -22,6 +23,7 @@ root.render(
     {/* <NewHooks /> */}
     <Memo />
     <PureMemo />
-    <UpdateMemo/>
+    <UpdateMemo />
+    <Hoc/>
   </>
 )
