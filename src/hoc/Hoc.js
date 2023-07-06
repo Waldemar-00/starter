@@ -29,7 +29,8 @@ const getDataFromSecondFetch = () => {return 20};
 const SliderFirst = (props) => {
     return (
         <Container>
-            <div className="slider w-50 m-auto">
+        <div className="slider w-50 m-auto">
+                <span>{props.name}</span>
                 <img className="d-block w-100" src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="slide" />
                 <div className="text-center mt-5">Active slide {props.slide}</div>
                 <div className="buttons mt-3">
@@ -49,7 +50,8 @@ const SliderSecond = (props) => {
     return (
         <Container>
             <div className="slider w-50 m-auto">
-                <img className="d-block w-100" src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="slide" />
+                <span>{props.name}</span>
+                <img className="d-block w-100" src="https://thumbs.dreamstime.com/b/big-ben-london-autumn-leaves-32915756.jpg" alt="slide" />
                 <div className="text-center mt-5">Active slide {props.slide} <br/>{props.autoplay ? 'auto' : null} </div>
                 <div className="buttons mt-3">
                     <button 
@@ -71,8 +73,8 @@ const Second = withSlider(SliderSecond, getDataFromSecondFetch)
 function Hoc() {
     return (
         <>
-          <First/>
-          <Second/>
+          <First name={'Paris'}/>
+          <Second name={'London'}/>
         </>
     );
 }
